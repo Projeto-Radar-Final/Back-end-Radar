@@ -1,4 +1,6 @@
 using System.Runtime.CompilerServices;
+using Microsoft.EntityFrameworkCore;
+using Projeto_Radar.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,12 +12,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-var conexao = Environment.GetEnvironmentVariable("DATABASE_URL_ESBOCO");
-Console.WriteLine(conexao);
-Console.WriteLine(conexao);
-Console.ReadKey();
-
-
+var conexao = Environment.GetEnvironmentVariable("DATABASE_URL");
+Console.WriteLine($"==============================={conexao}===========================");
+builder.Services.AddDbContext<DBContext>(options => options.UseMySql(conexao, ServerVersion.AutoDetect(conexao)));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
