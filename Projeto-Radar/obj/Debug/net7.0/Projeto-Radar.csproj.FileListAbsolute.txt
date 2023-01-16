@@ -36,3 +36,8 @@ C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\bin\Debug\net7.0\Microsoft.E
 C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\bin\Debug\net7.0\MySqlConnector.dll
 C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\bin\Debug\net7.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\bin\Debug\net7.0\Humanizer.dll
+C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\bin\Debug\net7.0\System.CodeDom.dll
