@@ -31,3 +31,8 @@ C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\obj\Debug\net7.0\refint\Proj
 C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\obj\Debug\net7.0\Projeto-Radar.pdb
 C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\obj\Debug\net7.0\Projeto-Radar.genruntimeconfig.cache
 C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\obj\Debug\net7.0\ref\Projeto-Radar.dll
+C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\bin\Debug\net7.0\MySqlConnector.dll
+C:\Users\I\source\repos\Projeto-Radar\Projeto-Radar\bin\Debug\net7.0\Pomelo.EntityFrameworkCore.MySql.dll
