@@ -20,7 +20,7 @@ namespace Projeto_Radar.Context
 
         public DbSet<Loja> Lojas { get; set; } = default!;
 
-        public DbSet<Campanha> Campanhass { get; set; } = default!;
+        public DbSet<Campanha> Campanhas { get; set; } = default!;
 
         public DbSet<PosicoesProduto> PosicoesProdutos { get; set; } = default!;
 
