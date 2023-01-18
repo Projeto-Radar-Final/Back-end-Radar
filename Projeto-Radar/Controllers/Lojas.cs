@@ -27,7 +27,7 @@ namespace Projeto_Radar.Controllers
             }
            
             var lojas = await _context.Lojas.ToListAsync();
-            StatusCode(200, lojas);
+           return StatusCode(200, lojas);
         }
 
         [HttpGet("{id}")]

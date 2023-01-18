@@ -1,6 +1,6 @@
 ﻿namespace Projeto_Radar.Dtos
 {
-    public class PedidoProduto
+    public class PedidoProdutoDto
     {
         public double Valor { get; set; }
 

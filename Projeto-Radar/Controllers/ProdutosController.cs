@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projeto_Radar.Context;
+using Projeto_Radar.Dtos;
 using Projeto_Radar.Entitys;
+using Projeto_Radar.Services;
 
 namespace Projeto_Radar.Controllers
 {
@@ -40,8 +42,10 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostProduto(Produto produto)
+        public async Task<IActionResult> PostProduto(ProdutoDto produtoDto)
         {
+            var produto = BuilderService<Produto>.Builder(produtoDto);
+
             _context.Produtos.Add(produto);
             await _context.SaveChangesAsync();
 

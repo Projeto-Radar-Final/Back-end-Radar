@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using projetoRadarEscopo.Context;
-using projetoRadarEscopo.Models;
+using Projeto_Radar.Context;
+using Projeto_Radar.Entitys;
+
 
 namespace Projeto_Radar.Controllers
 {
@@ -14,7 +15,6 @@ namespace Projeto_Radar.Controllers
     [ApiController]
     public class ClientesController : ControllerBase
     {
-
         private readonly DBContext _context;
 
         public ClientesController(DBContext context)
@@ -22,7 +22,7 @@ namespace Projeto_Radar.Controllers
             _context = context;
         }
 
-
+        // GET: api/Clientes
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Cliente>>> GetClientes()
         {
@@ -30,11 +30,10 @@ namespace Projeto_Radar.Controllers
             {
                 return NotFound();
             }
-           var clientes = await _context.Clientes.ToListAsync();
-
-            return StatusCode(200, clientes);
+            return await _context.Clientes.ToListAsync();
         }
 
+        // GET: api/Clientes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Cliente>> GetCliente(int id)
         {
@@ -49,9 +48,11 @@ namespace Projeto_Radar.Controllers
                 return NotFound();
             }
 
-            return StatusCode(200, cliente);
+            return cliente;
         }
 
+        // PUT: api/Clientes/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCliente([FromRoute] int id, Cliente cliente)
         {
@@ -78,9 +79,12 @@ namespace Projeto_Radar.Controllers
                     throw;
                 }
             }
+
             return NoContent();
         }
 
+        // POST: api/Clientes
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Cliente>> PostCliente(Cliente cliente)
         {
@@ -94,6 +98,7 @@ namespace Projeto_Radar.Controllers
             return CreatedAtAction("GetCliente", new { id = cliente.Id }, cliente);
         }
 
+        // DELETE: api/Clientes/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCliente(int id)
         {
@@ -112,9 +117,11 @@ namespace Projeto_Radar.Controllers
 
             return NoContent();
         }
+
         private bool ClienteExists(int id)
         {
             return (_context.Clientes?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
+
