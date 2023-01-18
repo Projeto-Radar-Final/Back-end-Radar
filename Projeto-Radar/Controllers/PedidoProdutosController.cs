@@ -28,7 +28,7 @@ namespace Projeto_Radar.Controllers
                 return NotFound();
             }
             var pedidoProdutos = await _context.PedidoProdutos.Include(p => p.Produto).Include(pe => pe.Pedido).ToListAsync();
-            return StatusCode(200 , pedidoProdutos)OnFormatting();
+            return StatusCode(200, pedidoProdutos);
         }
 
 
@@ -46,7 +46,8 @@ namespace Projeto_Radar.Controllers
                 return NotFound();
             }
 
-            return pedidoProduto;
+            return StatusCode(200, pedidoProduto);
+              
         }
 
         [HttpPut("{id}")]

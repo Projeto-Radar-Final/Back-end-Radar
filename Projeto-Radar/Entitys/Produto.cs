@@ -23,6 +23,7 @@ namespace Projeto_Radar.Entitys
         public double Valor { get; set; }
 
         [Column("qtd_estoque", TypeName = "INT")]
+        [JsonPropertyName("qtd_estoque")]
         public int QtdEstoque { get; set; }
 
         [Column("custo", TypeName = "DOUBLE")]
