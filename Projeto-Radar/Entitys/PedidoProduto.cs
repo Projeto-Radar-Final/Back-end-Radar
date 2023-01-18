@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Projeto_Radar.Entitys
 {
@@ -15,15 +16,17 @@ namespace Projeto_Radar.Entitys
         public double Valor { get; set; }
 
         [Column("quantidade")]
-        public int quantidade { get; set; }
+        public int Quantidade { get; set; }
 
         [ForeignKey("Produto")]
         [Column("produto_id")]
+        [JsonPropertyName("produto_id")]
         public int? produtoId { get; set; }
         public Produto Produto { get; set; }
 
         [ForeignKey("Pedido")]
         [Column("pedido_id")]
+        [JsonPropertyName("pedido_id")]
         public int? PedidoId { get; set; }
         public Pedido Pedido { get; set; }
 

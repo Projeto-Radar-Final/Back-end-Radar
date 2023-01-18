@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Projeto_Radar.Entitys
 {
@@ -21,6 +22,7 @@ namespace Projeto_Radar.Entitys
 
         [ForeignKey("Categoria")]
         [Column("cliente_id")]
+        [JsonPropertyName("cliente_id")]
         public int ClienteId { get; set; }
         public Cliente Cliente { get; set; } = default!;
 
