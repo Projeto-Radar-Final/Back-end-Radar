@@ -14,6 +14,7 @@ namespace Projeto_Radar.Entitys
 
         [Required]
         [Column("valor_total", TypeName = "DOUBLE")]
+        [JsonPropertyName("valor_total")]
         public double ValorTotal { get; set; }
 
         [Required]

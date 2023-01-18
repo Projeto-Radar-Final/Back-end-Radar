@@ -41,6 +41,18 @@ namespace Projeto_Radar.Controllers
             return StatusCode(200,produto);
         }
 
+        [HttpGet("produtosLast")]
+        public async Task<ActionResult<Produto>> GetLast()
+        {
+            var produto = await _context.Produtos
+                .OrderByDescending(l => l.Id)
+                .FirstOrDefaultAsync();
+            if (produto.Id == null) return NotFound("Produto não encontrado");
+ 
+            return StatusCode(200, produto);
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> PostProduto(ProdutoDto produtoDto)
         {
@@ -52,8 +64,10 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProduto([FromRoute]int id, Produto produto)
+        public async Task<IActionResult> PutProduto(int id, ProdutoDto produtoDto)
         {
+            var produto = BuilderService<Produto>.Builder(produtoDto);
+
             if (id != produto.Id)
             {
                 return BadRequest();

@@ -32,6 +32,19 @@ namespace Projeto_Radar.Controllers
             return StatusCode(200, pedidos);
         }
 
+        [HttpGet("/pedidosLast")]
+        public async Task<ActionResult<IEnumerable<Pedido>>> GetLast()
+        {
+            var pedido = await _context.Pedidos.OrderByDescending(p => p.Id).FirstOrDefaultAsync();
+
+            if (_context.Pedidos == null)
+            {
+                return NotFound();
+            }
+
+            return StatusCode(200, pedido);
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Pedido>> GetPedido(int id)
         {
@@ -86,12 +99,13 @@ namespace Projeto_Radar.Controllers
             {
                 return Problem("Entity set 'DBContext.Pedidos'  is null.");
             }
-            _context.Pedidos.Add(pedido);
             pedido.Data = DateOnly.FromDateTime(DateTime.Now);
+            _context.Pedidos.Add(pedido);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetPedido", new { id = pedido.Id }, pedido);
         }
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePedido(int id)
