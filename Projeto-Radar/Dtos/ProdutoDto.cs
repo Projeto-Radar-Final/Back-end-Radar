@@ -4,6 +4,7 @@ namespace Projeto_Radar.Dtos
 {
     public class ProdutoDto
     {
+        public int Id { get; set; }
 
         public string Nome { get; set; }
 
@@ -13,6 +14,7 @@ namespace Projeto_Radar.Dtos
 
         public double Valor { get; set; }
 
+        [JsonPropertyName("qtd_estoque")]
         public int QtdEstoque { get; set; }
 
         public double Custo { get; set; }

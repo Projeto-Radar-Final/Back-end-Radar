@@ -60,6 +60,35 @@ namespace Projeto_Radar.Controllers
             return CreatedAtAction("GetLoja", new { id = loja.Id }, loja);
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutLoja([FromRoute] int id, Loja loja)
+        {
+            if (id != loja.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(loja).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!LojaExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteLoja(int id)
         {
