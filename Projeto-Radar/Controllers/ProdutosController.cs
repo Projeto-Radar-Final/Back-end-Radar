@@ -45,11 +45,10 @@ namespace Projeto_Radar.Controllers
         public async Task<IActionResult> PostProduto(ProdutoDto produtoDto)
         {
             var produto = BuilderService<Produto>.Builder(produtoDto);
-
             _context.Produtos.Add(produto);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProduto", new { id = produto.Id }, produto);
+            return CreatedAtAction("GetProdutoById", new { id = produto.Id }, produto);
         }
 
         [HttpPut("{id}")]
