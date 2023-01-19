@@ -15,41 +15,41 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-//{
-//    c.SwaggerDoc("v1", new OpenApiInfo
-//    {
-//        Title = "Projeto Radar",
-//        Description = "Desenvolvimento do projeto integrador Radar do grupo 4",
-//        Contact = new OpenApiContact { Name = "Grupo 4", Email = "" },
-//        License = new OpenApiLicense { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
-//    });
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "Projeto Radar",
+        Description = "Desenvolvimento do projeto integrador Radar do grupo 4",
+        Contact = new OpenApiContact { Name = "Grupo 4", Email = "" },
+        License = new OpenApiLicense { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
+    });
 
-//    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-//    {
-//        Description = "Insira o token JWT como no exemplo: Bearer {SEU_TOKEN}",
-//        Name = "Authorization",
-//        Scheme = "Bearer",
-//        BearerFormat = "JWT",
-//        In = ParameterLocation.Header,
-//        Type = SecuritySchemeType.ApiKey
-//    });
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "Insira o token JWT como no exemplo: Bearer {SEU_TOKEN}",
+        Name = "Authorization",
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey
+    });
 
-//    c.AddSecurityRequirement(new OpenApiSecurityRequirement
-//    {
-//        {
-//            new OpenApiSecurityScheme
-//            {
-//                Reference = new OpenApiReference
-//                {
-//                    Type = ReferenceType.SecurityScheme,
-//                    Id = "Bearer"
-//                }
-//            },
-//            new string[] {}
-//        }
-//    });
-//});
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
+});
 
 
 builder.Services.AddCors(options =>
@@ -66,7 +66,7 @@ builder.Services.AddCors(options =>
 });
 
 
-var conexao = Environment.GetEnvironmentVariable("DATABASE_URL");
+var conexao = builder.Configuration.GetConnectionString("conexao");
 builder.Services.AddDbContext<DBContext>(options => options.UseMySql(conexao, ServerVersion.AutoDetect(conexao)));
 
 builder.Services.AddMvc(config =>
