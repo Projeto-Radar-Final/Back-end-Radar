@@ -45,6 +45,18 @@ namespace Projeto_Radar.Controllers
             return StatusCode(200, pedido);
         }
 
+        [HttpGet("/pedidosLastList")]
+        public async Task<ActionResult<IEnumerable<Pedido>>> GetPedidosLast()
+        {
+            if (_context.Pedidos == null)
+            {
+                return NotFound();
+            }
+            var pedidos = await _context.Pedidos.OrderByDescending(p => p.Id).Include(c => c.Cliente).ToListAsync();
+
+            return StatusCode(200, pedidos);
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Pedido>> GetPedido(int id)
         {
