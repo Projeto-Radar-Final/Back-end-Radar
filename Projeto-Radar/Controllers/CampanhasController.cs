@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using System.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projeto_Radar.Context;
@@ -18,19 +19,21 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "editor")]
         public async Task<ActionResult<IEnumerable<Campanha>>> GetCampanhas()
         {
             if (_context.Campanhas == null)
             {
                 return NotFound();
             }
-          var campanhas = await _context.Campanhas.ToListAsync();
+            var campanhas = await _context.Campanhas.ToListAsync();
 
-          return StatusCode(200, campanhas);
+            return StatusCode(200, campanhas);
         }
 
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<Campanha>> GetCampanha(int id)
         {
             if (_context.Campanhas == null)
@@ -44,8 +47,8 @@ namespace Projeto_Radar.Controllers
                 return NotFound();
             }
 
-          return StatusCode(200, campanha);
-               
+            return StatusCode(200, campanha);
+
         }
 
 

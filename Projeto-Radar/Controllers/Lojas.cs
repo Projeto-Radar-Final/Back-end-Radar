@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projeto_Radar.Context;
 using Projeto_Radar.Entitys;
@@ -25,9 +24,9 @@ namespace Projeto_Radar.Controllers
             {
                 return NotFound();
             }
-           
+
             var lojas = await _context.Lojas.ToListAsync();
-           return StatusCode(200, lojas);
+            return StatusCode(200, lojas);
         }
 
         [HttpGet("{id}")]
@@ -44,7 +43,7 @@ namespace Projeto_Radar.Controllers
                 return NotFound();
             }
 
-           return StatusCode(200,loja);
+            return StatusCode(200, loja);
         }
 
         [HttpPost]

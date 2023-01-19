@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projeto_Radar.Context;
 using Projeto_Radar.Dtos;
@@ -71,7 +70,7 @@ namespace Projeto_Radar.Controllers
                 return NotFound();
             }
 
-            return StatusCode(200,pedido);
+            return StatusCode(200, pedido);
         }
 
         [HttpPut("{id}")]
@@ -144,5 +143,5 @@ namespace Projeto_Radar.Controllers
             return (_context.Pedidos?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
- 
+
 }

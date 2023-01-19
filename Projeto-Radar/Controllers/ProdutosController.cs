@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projeto_Radar.Context;
 using Projeto_Radar.Dtos;
@@ -23,7 +22,7 @@ namespace Projeto_Radar.Controllers
         [HttpGet]
         public async Task<ActionResult<Produto>> GetProdutos()
         {
-            if(_context.Produtos == null) return NotFound("Produtos não encontrados");
+            if (_context.Produtos == null) return NotFound("Produtos não encontrados");
 
             var listaProdutos = await _context.Produtos.Include(c => c.Categoria).ToListAsync();
 
@@ -31,14 +30,14 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Produto>> GetProdutoById([FromRoute]int id)
+        public async Task<ActionResult<Produto>> GetProdutoById([FromRoute] int id)
         {
             if (id < 1) return NotFound("Produto não encontrado, id precisa ser maior que 0");
 
             var produto = await _context.Produtos.FindAsync(id);
             if (produto == null) return NotFound("Produtos não encontrados");
 
-            return StatusCode(200,produto);
+            return StatusCode(200, produto);
         }
 
         [HttpGet("produtosLast")]
@@ -48,7 +47,7 @@ namespace Projeto_Radar.Controllers
                 .OrderByDescending(l => l.Id)
                 .FirstOrDefaultAsync();
             if (produto.Id == null) return NotFound("Produto não encontrado");
- 
+
             return StatusCode(200, produto);
         }
 
@@ -91,7 +90,7 @@ namespace Projeto_Radar.Controllers
                 }
             }
 
-            return StatusCode(200,produto);
+            return StatusCode(200, produto);
         }
 
         [HttpDelete("{id}")]
