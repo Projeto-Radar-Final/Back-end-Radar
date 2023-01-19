@@ -8,7 +8,6 @@ namespace Projeto_Radar.Controllers
 {
     [Route("categorias")]
     [ApiController]
-    [AllowAnonymous]
     public class CategoriasController : ControllerBase
     {
 
@@ -20,6 +19,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<IEnumerable<Categoria>>> GetCategorias()
         {
             if (_context.Categorias == null)
@@ -32,6 +32,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<Categoria>> GetCategoria(int id)
         {
             if (_context.Categorias == null)
@@ -49,6 +50,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "adm")]
         public async Task<IActionResult> PutCategoria(int id, Categoria categoria)
         {
             if (id != categoria.Id)
@@ -78,6 +80,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<Categoria>> PostCategoria(Categoria categoria)
         {
             if (_context.Categorias == null)
@@ -91,6 +94,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "adm")]
         public async Task<IActionResult> DeleteCategoria(int id)
         {
             if (_context.Categorias == null)

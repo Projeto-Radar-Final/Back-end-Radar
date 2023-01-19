@@ -20,6 +20,7 @@ namespace Projeto_Radar.Controllers
 
         // GET: api/Usuarios
         [HttpGet]
+        [Authorize(Roles = "adm")]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
         {
             if (_context.Usuarios == null)
@@ -31,6 +32,7 @@ namespace Projeto_Radar.Controllers
 
         // GET: api/Usuarios/5
         [HttpGet("{id}")]
+        [Authorize(Roles = "adm")]
         public async Task<ActionResult<Usuario>> GetUsuario(int id)
         {
             if (_context.Usuarios == null)
@@ -50,6 +52,7 @@ namespace Projeto_Radar.Controllers
         // PUT: api/Usuarios/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize(Roles = "adm")]
         public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
         {
             if (id != usuario.Id)
@@ -95,6 +98,7 @@ namespace Projeto_Radar.Controllers
 
         // DELETE: api/Usuarios/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "adm")]
         public async Task<IActionResult> DeleteUsuario(int id)
         {
             if (_context.Usuarios == null)

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using System.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projeto_Radar.Context;
 using Projeto_Radar.Entitys;
@@ -18,6 +20,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<IEnumerable<Loja>>> GetLojas()
         {
             if (_context.Lojas == null)
@@ -30,6 +33,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<Loja>> GetLoja(int id)
         {
             if (_context.Lojas == null)
@@ -47,6 +51,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<Loja>> PostLoja(Loja loja)
         {
             if (_context.Lojas == null)
@@ -60,6 +65,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "adm")]
         public async Task<IActionResult> PutLoja([FromRoute] int id, Loja loja)
         {
             if (id != loja.Id)
@@ -89,6 +95,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "adm")]
         public async Task<IActionResult> DeleteLoja(int id)
         {
             if (_context.Lojas == null)

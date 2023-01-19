@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using System.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projeto_Radar.Context;
 using Projeto_Radar.Dtos;
@@ -19,6 +21,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<IEnumerable<PosicoesProduto>>> GetPosicoesProdutos()
         {
             if (_context.PosicoesProdutos == null)
@@ -30,6 +33,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<PosicoesProduto>> GetPosicoesProduto(int id)
         {
             if (_context.PosicoesProdutos == null)
@@ -48,6 +52,7 @@ namespace Projeto_Radar.Controllers
 
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "adm")]
         public async Task<IActionResult> PutPosicoesProduto(int id, PosicoesProduto posicoesProduto)
         {
             if (id != posicoesProduto.Id)
@@ -77,6 +82,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<PosicoesProduto>> PostPosicoesProduto(PosicoesProdutoDto posicoesProdutoDto)
         {
             var posicoesProduto = BuilderService<PosicoesProduto>.Builder(posicoesProdutoDto);
@@ -92,6 +98,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "adm")]
         public async Task<IActionResult> DeletePosicoesProduto(int id)
         {
             if (_context.PosicoesProdutos == null)

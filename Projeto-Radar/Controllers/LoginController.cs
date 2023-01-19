@@ -23,7 +23,9 @@ namespace Projeto_Radar.Controllers
         public async Task<IActionResult> Login([FromBody] UsuarioDto usuarioDto)
         {
             if (string.IsNullOrEmpty(usuarioDto.Email) || string.IsNullOrEmpty(usuarioDto.Senha))
-                return BadRequest("Prenca o email e a senha");
+                return BadRequest("Prenca o email e a senhaaaaaaaaaaaaaaaaaaa");
+            Console.WriteLine(usuarioDto.Email);
+            Console.WriteLine(usuarioDto.Senha);
 
             usuarioDto.Senha = AuthTokenService.CriptografiaSenha(usuarioDto.Senha);
             var usuario = await _context.Usuarios.Where(e => e.Email == usuarioDto.Email).FirstOrDefaultAsync();
