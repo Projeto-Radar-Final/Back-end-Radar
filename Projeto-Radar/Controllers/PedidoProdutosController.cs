@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projeto_Radar.Context;
-using Projeto_Radar.Entitys;
 using Projeto_Radar.Dtos;
+using Projeto_Radar.Entitys;
 using Projeto_Radar.Services;
 
 namespace Projeto_Radar.Controllers
@@ -47,8 +46,9 @@ namespace Projeto_Radar.Controllers
             }
 
             return StatusCode(200, pedidoProduto);
-              
+
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPedidoProduto(int id, PedidoProduto pedidoProduto)

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projeto_Radar.Context;
 using Projeto_Radar.Dtos;
@@ -32,6 +31,31 @@ namespace Projeto_Radar.Controllers
             return StatusCode(200, pedidos);
         }
 
+        [HttpGet("/pedidosLast")]
+        public async Task<ActionResult<IEnumerable<Pedido>>> GetLast()
+        {
+            var pedido = await _context.Pedidos.OrderByDescending(p => p.Id).FirstOrDefaultAsync();
+
+            if (_context.Pedidos == null)
+            {
+                return NotFound();
+            }
+
+            return StatusCode(200, pedido);
+        }
+
+        [HttpGet("/pedidosLastList")]
+        public async Task<ActionResult<IEnumerable<Pedido>>> GetPedidosLast()
+        {
+            if (_context.Pedidos == null)
+            {
+                return NotFound();
+            }
+            var pedidos = await _context.Pedidos.OrderByDescending(p => p.Id).Include(c => c.Cliente).ToListAsync();
+
+            return StatusCode(200, pedidos);
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Pedido>> GetPedido(int id)
         {
@@ -46,7 +70,7 @@ namespace Projeto_Radar.Controllers
                 return NotFound();
             }
 
-            return StatusCode(200,pedido);
+            return StatusCode(200, pedido);
         }
 
         [HttpPut("{id}")]
@@ -86,12 +110,13 @@ namespace Projeto_Radar.Controllers
             {
                 return Problem("Entity set 'DBContext.Pedidos'  is null.");
             }
-            _context.Pedidos.Add(pedido);
             pedido.Data = DateOnly.FromDateTime(DateTime.Now);
+            _context.Pedidos.Add(pedido);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetPedido", new { id = pedido.Id }, pedido);
         }
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePedido(int id)
@@ -118,5 +143,5 @@ namespace Projeto_Radar.Controllers
             return (_context.Pedidos?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
- 
+
 }

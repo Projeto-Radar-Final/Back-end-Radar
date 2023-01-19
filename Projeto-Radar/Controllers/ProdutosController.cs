@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projeto_Radar.Context;
 using Projeto_Radar.Dtos;
@@ -23,7 +22,7 @@ namespace Projeto_Radar.Controllers
         [HttpGet]
         public async Task<ActionResult<Produto>> GetProdutos()
         {
-            if(_context.Produtos == null) return NotFound("Produtos não encontrados");
+            if (_context.Produtos == null) return NotFound("Produtos não encontrados");
 
             var listaProdutos = await _context.Produtos.Include(c => c.Categoria).ToListAsync();
 
@@ -31,30 +30,43 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Produto>> GetProdutoById([FromRoute]int id)
+        public async Task<ActionResult<Produto>> GetProdutoById([FromRoute] int id)
         {
             if (id < 1) return NotFound("Produto não encontrado, id precisa ser maior que 0");
 
             var produto = await _context.Produtos.FindAsync(id);
             if (produto == null) return NotFound("Produtos não encontrados");
 
-            return StatusCode(200,produto);
+            return StatusCode(200, produto);
         }
+
+        [HttpGet("produtosLast")]
+        public async Task<ActionResult<Produto>> GetLast()
+        {
+            var produto = await _context.Produtos
+                .OrderByDescending(l => l.Id)
+                .FirstOrDefaultAsync();
+            if (produto.Id == null) return NotFound("Produto não encontrado");
+
+            return StatusCode(200, produto);
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> PostProduto(ProdutoDto produtoDto)
         {
             var produto = BuilderService<Produto>.Builder(produtoDto);
-
             _context.Produtos.Add(produto);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProduto", new { id = produto.Id }, produto);
+            return CreatedAtAction("GetProdutoById", new { id = produto.Id }, produto);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProduto([FromRoute]int id, Produto produto)
+        public async Task<IActionResult> PutProduto(int id, ProdutoDto produtoDto)
         {
+            var produto = BuilderService<Produto>.Builder(produtoDto);
+
             if (id != produto.Id)
             {
                 return BadRequest();
@@ -78,7 +90,7 @@ namespace Projeto_Radar.Controllers
                 }
             }
 
-            return StatusCode(200,produto);
+            return StatusCode(200, produto);
         }
 
         [HttpDelete("{id}")]

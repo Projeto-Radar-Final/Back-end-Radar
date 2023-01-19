@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projeto_Radar.Context;
 using Projeto_Radar.Dtos;
@@ -26,21 +21,21 @@ namespace Projeto_Radar.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PosicoesProduto>>> GetPosicoesProdutos()
         {
-          if (_context.PosicoesProdutos == null)
-          {
-              return NotFound();
-          } 
+            if (_context.PosicoesProdutos == null)
+            {
+                return NotFound();
+            }
             var posicoesProdutos = await _context.PosicoesProdutos.ToListAsync();
-            return StatusCode(200,posicoesProdutos);
+            return StatusCode(200, posicoesProdutos);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<PosicoesProduto>> GetPosicoesProduto(int id)
         {
-          if (_context.PosicoesProdutos == null)
-          {
-              return NotFound();
-          }
+            if (_context.PosicoesProdutos == null)
+            {
+                return NotFound();
+            }
             var posicoesProduto = await _context.PosicoesProdutos.FindAsync(id);
 
             if (posicoesProduto == null)
@@ -48,7 +43,7 @@ namespace Projeto_Radar.Controllers
                 return NotFound();
             }
 
-            return StatusCode(200,posicoesProduto);
+            return StatusCode(200, posicoesProduto);
         }
 
 
@@ -86,10 +81,10 @@ namespace Projeto_Radar.Controllers
         {
             var posicoesProduto = BuilderService<PosicoesProduto>.Builder(posicoesProdutoDto);
 
-          if (_context.PosicoesProdutos == null)
-          {
-              return Problem("Banco de dados está ");
-          }
+            if (_context.PosicoesProdutos == null)
+            {
+                return Problem("Banco de dados está ");
+            }
             _context.PosicoesProdutos.Add(posicoesProduto);
             await _context.SaveChangesAsync();
 

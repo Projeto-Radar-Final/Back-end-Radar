@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projeto_Radar.Context;
 using Projeto_Radar.Entitys;
@@ -25,9 +24,9 @@ namespace Projeto_Radar.Controllers
             {
                 return NotFound();
             }
-           
+
             var lojas = await _context.Lojas.ToListAsync();
-           return StatusCode(200, lojas);
+            return StatusCode(200, lojas);
         }
 
         [HttpGet("{id}")]
@@ -44,7 +43,7 @@ namespace Projeto_Radar.Controllers
                 return NotFound();
             }
 
-           return StatusCode(200,loja);
+            return StatusCode(200, loja);
         }
 
         [HttpPost]
@@ -58,6 +57,35 @@ namespace Projeto_Radar.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetLoja", new { id = loja.Id }, loja);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutLoja([FromRoute] int id, Loja loja)
+        {
+            if (id != loja.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(loja).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!LojaExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
