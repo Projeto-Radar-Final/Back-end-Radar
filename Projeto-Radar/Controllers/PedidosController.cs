@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using System.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projeto_Radar.Context;
 using Projeto_Radar.Dtos;
@@ -20,6 +22,7 @@ namespace Projeto_Radar.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<IEnumerable<Pedido>>> GetPedidos()
         {
             if (_context.Pedidos == null)
@@ -32,6 +35,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpGet("/pedidosLast")]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<IEnumerable<Pedido>>> GetLast()
         {
             var pedido = await _context.Pedidos.OrderByDescending(p => p.Id).FirstOrDefaultAsync();
@@ -45,6 +49,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpGet("/pedidosLastList")]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<IEnumerable<Pedido>>> GetPedidosLast()
         {
             if (_context.Pedidos == null)
@@ -57,6 +62,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<Pedido>> GetPedido(int id)
         {
             if (_context.Pedidos == null)
@@ -74,6 +80,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "adm")]
         public async Task<IActionResult> PutPedido([FromRoute] int id, Pedido pedido)
         {
             if (id != pedido.Id)
@@ -103,6 +110,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<Pedido>> PostPedido(PedidoDto pedidodto)
         {
             var pedido = BuilderService<Pedido>.Builder(pedidodto);
@@ -119,6 +127,7 @@ namespace Projeto_Radar.Controllers
 
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "adm")]
         public async Task<IActionResult> DeletePedido(int id)
         {
             if (_context.Pedidos == null)

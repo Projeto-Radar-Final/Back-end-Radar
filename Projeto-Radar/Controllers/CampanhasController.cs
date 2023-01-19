@@ -19,7 +19,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "editor")]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<IEnumerable<Campanha>>> GetCampanhas()
         {
             if (_context.Campanhas == null)
@@ -53,6 +53,7 @@ namespace Projeto_Radar.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<Campanha>> PostCampanha(Campanha campanha)
         {
             if (_context.Campanhas == null)
@@ -66,6 +67,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "adm")]
         public async Task<IActionResult> PutCampanha(int id, Campanha campanha)
         {
             if (id != campanha.Id)
@@ -95,6 +97,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "adm")]
         public async Task<IActionResult> DeleteCampanha(int id)
         {
             if (_context.Campanhas == null)

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using System.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projeto_Radar.Context;
 using Projeto_Radar.Entitys;
@@ -17,8 +19,8 @@ namespace Projeto_Radar.Controllers
             _context = context;
         }
 
-        // GET: api/Clientes
         [HttpGet]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<IEnumerable<Cliente>>> GetClientes()
         {
             if (_context.Clientes == null)
@@ -30,6 +32,7 @@ namespace Projeto_Radar.Controllers
 
         // GET: api/Clientes/5
         [HttpGet("{id}")]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<Cliente>> GetCliente(int id)
         {
             if (_context.Clientes == null)
@@ -49,6 +52,7 @@ namespace Projeto_Radar.Controllers
         // PUT: api/Clientes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize(Roles = "adm")]
         public async Task<IActionResult> PutCliente([FromRoute] int id, Cliente cliente)
         {
             if (id != cliente.Id)
@@ -81,6 +85,7 @@ namespace Projeto_Radar.Controllers
         // POST: api/Clientes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<Cliente>> PostCliente(Cliente cliente)
         {
             if (_context.Clientes == null)
@@ -95,6 +100,7 @@ namespace Projeto_Radar.Controllers
 
         // DELETE: api/Clientes/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "adm")]
         public async Task<IActionResult> DeleteCliente(int id)
         {
             if (_context.Clientes == null)

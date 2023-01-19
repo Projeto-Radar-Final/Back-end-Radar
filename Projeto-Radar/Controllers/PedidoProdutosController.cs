@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using System.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projeto_Radar.Context;
 using Projeto_Radar.Dtos;
@@ -20,6 +22,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<IEnumerable<PedidoProduto>>> GetPedidoProdutos()
         {
             if (_context.PedidoProdutos == null)
@@ -32,6 +35,7 @@ namespace Projeto_Radar.Controllers
 
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<PedidoProduto>> GetPedidoProduto(int id)
         {
             if (_context.PedidoProdutos == null)
@@ -51,6 +55,7 @@ namespace Projeto_Radar.Controllers
 
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "adm,editor")]
         public async Task<IActionResult> PutPedidoProduto(int id, PedidoProduto pedidoProduto)
         {
             if (id != pedidoProduto.Id)
@@ -80,6 +85,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<PedidoProduto>> PostPedidoProduto(PedidoProdutoDto pedidoProdutoDto)
         {
             var pedidoProduto = BuilderService<PedidoProduto>.Builder(pedidoProdutoDto);
@@ -94,6 +100,7 @@ namespace Projeto_Radar.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "adm,editor")]
         public async Task<IActionResult> DeletePedidoProduto(int id)
         {
             if (_context.PedidoProdutos == null)
