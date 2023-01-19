@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projeto_Radar.Context;
@@ -8,6 +8,7 @@ namespace Projeto_Radar.Controllers
 {
     [Route("categorias")]
     [ApiController]
+    [AllowAnonymous]
     public class CategoriasController : ControllerBase
     {
 
@@ -25,7 +26,7 @@ namespace Projeto_Radar.Controllers
             {
                 return NotFound();
             }
-           var categorias =  await _context.Categorias.ToListAsync();
+            var categorias = await _context.Categorias.ToListAsync();
 
             return StatusCode(200, categorias);
         }
@@ -44,7 +45,7 @@ namespace Projeto_Radar.Controllers
                 return NotFound();
             }
 
-           return  StatusCode(200, categoria);
+            return StatusCode(200, categoria);
         }
 
         [HttpPut("{id}")]
