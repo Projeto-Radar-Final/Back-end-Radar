@@ -31,7 +31,7 @@ namespace Projeto_Radar.Entitys
 
         [Required]
         [Column("logradouro", TypeName = "varchar(45)")]
-        public string Logradoro { get; set; }
+        public string Logradouro { get; set; }
 
         [Required]
         [Column("numero", TypeName = "DOUBLE")]

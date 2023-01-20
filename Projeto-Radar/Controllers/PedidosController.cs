@@ -79,6 +79,24 @@ namespace Projeto_Radar.Controllers
             return StatusCode(200, pedido);
         }
 
+        [HttpGet("pedidos/produtos/{id}")]
+        [Authorize(Roles = "adm,editor")]
+        public async Task<ActionResult<Pedido>> GetPorProdutoId(int id)
+        {
+           if (_context.Pedidos == null)
+            {
+                return NotFound();
+            }
+            var pedido = await _context.Pedidos.FindAsync(id);
+
+            if (pedido == null)
+            {
+                return NotFound();
+            }
+
+            return StatusCode(200, pedido);
+        }
+
         [HttpPut("{id}")]
         [Authorize(Roles = "adm")]
         public async Task<IActionResult> PutPedido([FromRoute] int id, Pedido pedido)

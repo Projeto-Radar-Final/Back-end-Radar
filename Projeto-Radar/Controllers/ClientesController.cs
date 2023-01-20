@@ -49,6 +49,18 @@ namespace Projeto_Radar.Controllers
             return cliente;
         }
 
+        [HttpGet]
+        [Authorize(Roles = "adm,editor")]
+        public async Task<ActionResult<IEnumerable<Cliente>>> GetClientesLast()
+        {
+            var cliente = await _context.Clientes.OrderByDescending(p => p.Id).FirstOrDefaultAsync();
+            if (_context.Clientes == null)
+            {
+                return NotFound();
+            }
+            return await _context.Clientes.ToListAsync();
+        }
+
         // PUT: api/Clientes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
