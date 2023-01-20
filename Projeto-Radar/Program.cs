@@ -65,7 +65,6 @@ builder.Services.AddCors(options =>
         });
 });
 
-
 var conexao = builder.Configuration.GetConnectionString("conexao");
 builder.Services.AddDbContext<DBContext>(options => options.UseMySql(conexao, ServerVersion.AutoDetect(conexao)));
 
