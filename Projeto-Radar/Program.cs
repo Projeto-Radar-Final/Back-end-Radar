@@ -65,7 +65,9 @@ builder.Services.AddCors(options =>
         });
 });
 
-var conexao = builder.Configuration.GetConnectionString("conexao");
+// var conexao = builder.Configuration.GetConnectionString("conexao");
+
+var conexao = "Server=/cloudsql/desafio-final-dotnet:southamerica-east1:codigo-do-futuro;Database=radar;Uid=codfutdnet;Pwd=123qwe;";
 builder.Services.AddDbContext<DBContext>(options => options.UseMySql(conexao, ServerVersion.AutoDetect(conexao)));
 
 builder.Services.AddMvc(config =>
@@ -102,15 +104,15 @@ builder.Services.AddAuthorization(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseCors("corspolicy");
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
