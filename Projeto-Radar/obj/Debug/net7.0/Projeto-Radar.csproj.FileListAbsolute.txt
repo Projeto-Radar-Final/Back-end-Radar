@@ -1,4 +1,3 @@
-C:/Users/I/source/repos/Projeto-Radar/Projeto-Radar/bin/Debug/net7.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /home/gustavo-pereira/projetos/dotnet/back/Back-end-Radar/Projeto-Radar/bin/Debug/net7.0/appsettings.Development.json
 /home/gustavo-pereira/projetos/dotnet/back/Back-end-Radar/Projeto-Radar/bin/Debug/net7.0/appsettings.json
 /home/gustavo-pereira/projetos/dotnet/back/Back-end-Radar/Projeto-Radar/bin/Debug/net7.0/out/web.config

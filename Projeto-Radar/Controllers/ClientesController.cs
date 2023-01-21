@@ -58,11 +58,9 @@ namespace Projeto_Radar.Controllers
             {
                 return NotFound();
             }
-            return await _context.Clientes.ToListAsync();
+            return StatusCode(200,cliente);
         }
 
-        // PUT: api/Clientes/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         [Authorize(Roles = "adm")]
         public async Task<IActionResult> PutCliente([FromRoute] int id, Cliente cliente)
@@ -93,9 +91,6 @@ namespace Projeto_Radar.Controllers
 
             return NoContent();
         }
-
-        // POST: api/Clientes
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<Cliente>> PostCliente(Cliente cliente)
@@ -110,7 +105,6 @@ namespace Projeto_Radar.Controllers
             return CreatedAtAction("GetCliente", new { id = cliente.Id }, cliente);
         }
 
-        // DELETE: api/Clientes/5
         [HttpDelete("{id}")]
         [Authorize(Roles = "adm")]
         public async Task<IActionResult> DeleteCliente(int id)

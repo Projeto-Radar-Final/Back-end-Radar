@@ -79,7 +79,7 @@ namespace Projeto_Radar.Controllers
             return StatusCode(200, pedido);
         }
 
-        [HttpGet("pedidos/produtos/{id}")]
+        [HttpGet("/produtos/{id}")]
         [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<Pedido>> GetPorProdutoId(int id)
         {
