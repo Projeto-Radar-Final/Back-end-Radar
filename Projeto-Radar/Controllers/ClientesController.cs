@@ -49,7 +49,7 @@ namespace Projeto_Radar.Controllers
             return cliente;
         }
 
-        [HttpGet]
+        [HttpGet("clientesLast")]
         [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<IEnumerable<Cliente>>> GetClientesLast()
         {
