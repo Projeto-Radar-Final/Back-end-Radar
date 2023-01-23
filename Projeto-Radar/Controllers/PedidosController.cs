@@ -79,7 +79,7 @@ namespace Projeto_Radar.Controllers
             return StatusCode(200, pedido);
         }
 
-        [HttpGet("/produtos/{id}")]
+        [HttpGet("/{id}")]
         [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<Pedido>> GetPorProdutoId(int id)
         {
@@ -99,7 +99,7 @@ namespace Projeto_Radar.Controllers
 
         [HttpPut("{id}")]
         [Authorize(Roles = "adm")]
-        public async Task<IActionResult> PutPedido([FromRoute] int id, Pedido pedido)
+        public async Task<IActionResult> PutPedido(int id, Pedido pedido)
         {
             if (id != pedido.Id)
             {

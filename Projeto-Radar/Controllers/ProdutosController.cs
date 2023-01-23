@@ -34,7 +34,7 @@ namespace Projeto_Radar.Controllers
 
         [HttpGet("{id}")]
         [Authorize(Roles = "adm,editor")]
-        public async Task<ActionResult<Produto>> GetProdutoById([FromRoute] int id)
+        public async Task<ActionResult<Produto>> GetProdutoById(int id)
         {
             if (id < 1) return NotFound("Produto não encontrado, id precisa ser maior que 0");
 

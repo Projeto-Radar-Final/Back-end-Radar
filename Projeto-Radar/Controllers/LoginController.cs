@@ -23,7 +23,7 @@ namespace Projeto_Radar.Controllers
         public async Task<IActionResult> Login([FromBody] UsuarioDto usuarioDto)
         {
             if (string.IsNullOrEmpty(usuarioDto.Email) || string.IsNullOrEmpty(usuarioDto.Senha))
-                return BadRequest("Prenca o email e a senhaaaaaaaaaaaaaaaaaaa");
+                return BadRequest("Prenca o email e a senha");
             Console.WriteLine(usuarioDto.Email);
             Console.WriteLine(usuarioDto.Senha);
 

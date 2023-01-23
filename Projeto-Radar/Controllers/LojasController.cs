@@ -66,7 +66,7 @@ namespace Projeto_Radar.Controllers
 
         [HttpPut("{id}")]
         [Authorize(Roles = "adm")]
-        public async Task<IActionResult> PutLoja([FromRoute] int id, Loja loja)
+        public async Task<IActionResult> PutLoja(int id, Loja loja)
         {
             if (id != loja.Id)
             {
