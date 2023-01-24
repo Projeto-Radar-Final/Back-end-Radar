@@ -45,12 +45,12 @@ namespace Projeto_Radar.Entitys
         public string Complemento { get; set; }
 
         [Required]
-        [Column("latitude", TypeName = "varchar(45)")]
-        public string latitude { get; set; }
+        [Column("latitude")]
+        public int latitude { get; set; }
 
         [Required]
-        [Column("longitude", TypeName = "varchar(45)")]
-        public string longitude { get; set; }
+        [Column("longitude")]
+        public int longitude { get; set; }
 
 
     }

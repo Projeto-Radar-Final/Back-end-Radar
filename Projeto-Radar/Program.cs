@@ -65,6 +65,7 @@ builder.Services.AddCors(options =>
         });
 });
 
+//var conexao = "Server=35.198.28.177;Database=radar;Uid=codfutdnet;Pwd=123qwe;";
 // var conexao = builder.Configuration.GetConnectionString("conexao");
 //var conexao = "Server=35.198.28.177;Database=radar;Uid=codfutdnet;Pwd=123qwe;";
 var conexao = "Server=/cloudsql/desafio-final-dotnet:southamerica-east1:codigo-do-futuro;Database=radar;Uid=codfutdnet;Pwd=123qwe;";

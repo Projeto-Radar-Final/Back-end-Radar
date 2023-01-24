@@ -6,7 +6,7 @@ namespace Projeto_Radar.Dtos
     {
         public double Valor { get; set; }
 
-        public int quantidade { get; set; }
+        public int Quantidade { get; set; }
 
         [JsonPropertyName("produto_id")]
         public int produtoId { get; set; }
