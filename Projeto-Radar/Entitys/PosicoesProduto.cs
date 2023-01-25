@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Projeto_Radar.Entitys
 {
@@ -17,6 +18,7 @@ namespace Projeto_Radar.Entitys
 
         [ForeignKey("Campanha")]
         [Column("campanha_id")]
+        [JsonPropertyName("campanha_id")]
         public int CampanhaId { get; set; }
         public Campanha Campanha { get; set; } = default!;
 
