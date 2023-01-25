@@ -30,8 +30,6 @@ namespace Projeto_Radar.Controllers
 
             return StatusCode(200, campanhas);
         }
-
-
         [HttpGet("{id}")]
         [Authorize(Roles = "adm,editor")]
         public async Task<ActionResult<Campanha>> GetCampanha(int id)
@@ -94,6 +92,19 @@ namespace Projeto_Radar.Controllers
             }
 
             return NoContent();
+        }
+        [HttpGet("/campanhasLast")]
+        [Authorize(Roles = "adm,editor")]
+        public async Task<ActionResult<IEnumerable<Campanha>>> GetLast()
+        {
+            var campanha = await _context.Campanhas.OrderByDescending(p => p.Id).FirstOrDefaultAsync();
+
+            if (_context.Pedidos == null)
+            {
+                return NotFound();
+            }
+
+            return StatusCode(200, campanha);
         }
 
         [HttpDelete("{id}")]

@@ -55,7 +55,6 @@ namespace Projeto_Radar.Controllers
             return StatusCode(200, produto);
         }
 
-
         [HttpPost]
         [Authorize(Roles = "adm,editor")]
         public async Task<IActionResult> PostProduto(ProdutoDto produtoDto)

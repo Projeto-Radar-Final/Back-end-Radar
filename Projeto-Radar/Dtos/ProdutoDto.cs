@@ -12,6 +12,9 @@ namespace Projeto_Radar.Dtos
         public string Descricao { get; set; }
 
 
+        public string FotoUrl { get; set; }
+
+
         public double Valor { get; set; }
 
         [JsonPropertyName("qtd_estoque")]

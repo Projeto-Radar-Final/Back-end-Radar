@@ -19,12 +19,18 @@ namespace Projeto_Radar.Entitys
         [Column("descricao", TypeName = "varchar(255)")]
         public string Descricao { get; set; }
 
+        [Column("foto_url", TypeName = "varchar(255)")]
+        public string FotoUrl { get; set; }
+
+
         [Column("valor", TypeName = "DOUBLE")]
         public double Valor { get; set; }
 
         [Column("qtd_estoque", TypeName = "INT")]
         [JsonPropertyName("qtd_estoque")]
         public int QtdEstoque { get; set; }
+
+
 
         [Column("custo", TypeName = "DOUBLE")]
         public double Custo { get; set; }
