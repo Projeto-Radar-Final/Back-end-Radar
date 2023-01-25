@@ -68,7 +68,7 @@ builder.Services.AddCors(options =>
 //var conexao = "Server=35.198.28.177;Database=radar;Uid=codfutdnet;Pwd=123qwe;";
 // var conexao = builder.Configuration.GetConnectionString("conexao");
 //var conexao = "Server=35.198.28.177;Database=radar;Uid=codfutdnet;Pwd=123qwe;";
-var conexao = "Server=/cloudsql/desafio-final-dotnet:southamerica-east1:codigo-do-futuro;Database=radar;Uid=codfutdnet;Pwd=123qwe;";
+var conexao = "server=/cloudsql/desafio-final-dotnet:southamerica-east1:codigo-do-futuro;database=radar;uid=codfutdnet;pwd=123qwe;";
 builder.Services.AddDbContext<DBContext>(options => options.UseMySql(conexao, ServerVersion.AutoDetect(conexao)));
 
 builder.Services.AddMvc(config =>
