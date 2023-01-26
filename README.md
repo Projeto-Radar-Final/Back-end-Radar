@@ -26,23 +26,23 @@
   <tbody>
     <tr>
       <td align = 'center'>Home Login / Cadastro </td>
-      <td><img width="1604" alt=" Home Login" src="./Projeto-Radar-Final/Back-end-Radar/blob/main/img-projfinal/home-login.png"></td>
+      <td><img width="1604" alt=" Home Login" src="https://i.imgur.com/2BNEl3O.png"></td>
     </tr>
     <tr>
       <td align = 'center'>Página Dashboard</td>
-      <td><img width="1604" alt=" Página Home" src="./Projeto-Radar-Final/Back-end-Radar/blob/main/img-projfinal/dashboard.png"></td>
+      <td><img width="1604" alt=" Página Home" src="https://i.imgur.com/WHShUYx.png"></td>
     </tr>
     <tr>
       <td align = 'center'>Página de Campanha</td>
-      <td><img width="1604" alt=" Página de Campanha" src="./Projeto-Radar-Final/Back-end-Radar/blob/main/img-projfinal/pg-campanha.png"></td>
+      <td><img width="1604" alt=" Página de Campanha" src="https://i.imgur.com/thPyzhl.png"></td>
     </tr>
     <tr>
       <td align = 'center'>Página de Lojas</td>
-      <td><img width="1604" alt=" Página de lojas" src="./Projeto-Radar-Final/Back-end-Radar/blob/main/img-projfinal/pg-lojas.png"></td>
+      <td><img width="1604" alt=" Página de lojas" src="https://i.imgur.com/pyvHdoE.png"></td>
     </tr>
     <tr>
       <td align = 'center'>Página de clientes</td>
-      <td><img width="1604" alt=" Página de clientes" src="./Projeto-Radar-Final/Back-end-Radar/blob/main/img-projfinal/pg-clientes.png"></td>
+      <td><img width="1604" alt=" Página de clientes" src="https://i.imgur.com/LkmYUrX.png"></td>
     </tr>
     <tr>
       <td align = 'center'>Página de Pedidoss</td>
@@ -113,8 +113,10 @@ As seguintes tecnologias foram utilizadas para construção do projeto:<br><br>
 
 <div align = 'center'>
   <h3>Backend | API</h3>
-  <img height =' 100px ' src="https://swagger.io/"/>
-  <img height =' 100px ' left=' 20px ' src="https://en.wikipedia.org/wiki/File:Microsoft_.NET_logo.svg"/>
+  <img height =' 100px ' left=' 20px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"/>
+  <img height =' 100px ' left=' 20px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg"/>
+  <img height =' 100px ' left=' 20px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"/>
+  <img height =' 100px ' left=' 20px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"/>
   <br>
   <h3>IDE</h3>
   <img height =' 100px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" />
