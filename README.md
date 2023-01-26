@@ -45,8 +45,8 @@
       <td><img width="1604" alt=" Página de clientes" src="./Projeto-Radar-Final/Back-end-Radar/blob/main/img-projfinal/pg-clientes.png"></td>
     </tr>
     <tr>
-      <td align = 'center'>Página de Projeto</td>
-      <td><img width="1604" alt=" Página de fluxo de caixa, mostrando a movimentação do mês" src="./frontend/src/assets/screens/fluxo.png"></td>
+      <td align = 'center'>Página de Pedidoss</td>
+      <td><img width="1604" alt=" Página de pedidos" src="./frontend/src/assets/screens/fluxo.png"></td>
     </tr>
   </tbody>
 </table>
