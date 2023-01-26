@@ -46,7 +46,7 @@
     </tr>
     <tr>
       <td align = 'center'>Página de Pedidoss</td>
-      <td><img width="1604" alt=" Página de pedidos" src="./frontend/src/assets/screens/fluxo.png"></td>
+      <td><img width="1604" alt=" Página de pedidos" src="https://i.imgur.com/jk6mSVx.png"></td>
     </tr>
   </tbody>
 </table>
