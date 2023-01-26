@@ -4,11 +4,12 @@
 
 | Integrante | Foto | 
 | :------------: | :------------: | 
-| Alexandre da Costa Pedro | <img width="100px" src="https://user-images.githubusercontent.com/94070505/214923929-98251caa-24ea-44be-a07c-411d499cda76.jpg"> 
-| David Webner | <img width="100px" src="https://user-images.githubusercontent.com/94070505/214923782-9f4d6067-d973-4feb-ae21-4116dc859127.jpg">
-| Gustavo Pereira | <img width="100px" src="https://user-images.githubusercontent.com/94070505/214923731-823670b8-0164-4929-87d3-8ff54a70b6ab.jpg">
 | Matheus Rodrigues | <img width="100px" src="https://user-images.githubusercontent.com/94070505/214923657-dc6b8c3f-f6a0-4a10-ad79-4a47515251d9.jpg">|
+| Gustavo Pereira | <img width="100px" src="https://user-images.githubusercontent.com/94070505/214923731-823670b8-0164-4929-87d3-8ff54a70b6ab.jpg">
 | Pedro M. Alonso | <img width="100px" src="https://user-images.githubusercontent.com/94070505/214923567-b312d74a-c189-484a-b968-16124ed4d5aa.jpg">
+| David Webner | <img width="100px" src="https://user-images.githubusercontent.com/94070505/214923782-9f4d6067-d973-4feb-ae21-4116dc859127.jpg">
+| Alexandre da Costa Pedro | <img width="100px" src="https://user-images.githubusercontent.com/94070505/214923929-98251caa-24ea-44be-a07c-411d499cda76.jpg"> 
+
 <div align = "center">
   <h1> Projeto Radar - Desafio Final </h1>
 </div>
@@ -44,7 +45,7 @@
       <td><img width="1604" alt=" Página de clientes" src="./Projeto-Radar-Final/Back-end-Radar/blob/main/img-projfinal/pg-clientes.png"></td>
     </tr>
     <tr>
-      <td align = 'center'>Página de fluxo de caixa, mostrando a movimentação do mês</td>
+      <td align = 'center'>Página de Projeto</td>
       <td><img width="1604" alt=" Página de fluxo de caixa, mostrando a movimentação do mês" src="./frontend/src/assets/screens/fluxo.png"></td>
     </tr>
   </tbody>
@@ -83,6 +84,8 @@ O sistema foi desenvolvido em Angular, com as seguintes funcionalidades:
   <li>Página cadastro de clientes</li>
   <li>Página cadastro de pedidos dos clientes</li>
   <li>Página de fluxo de caixa, mostrando a movimentação do mês</li>
+  <li>Página de Campanha</li>
+  <li>Página de lojas</li>
 </ul>
 
 Para gravação das informações, criou-se uma API em Node.js e Express, com a persistência em disco com arquivo.json. Esta API foi integrada à aplicação frontend (Angular).
@@ -93,33 +96,29 @@ Para gravação das informações, criou-se uma API em Node.js e Express, com a 
 <h2> 🛠 Tecnologias utilizadas </h2>
 As seguintes tecnologias foram utilizadas para construção do projeto:<br><br>
 
-|                       Descrição                       |           Ferramenta           |            Referência            |
-| :----------------------------------------------: | :-----------------------: | :-------------------------------: |
-|                       IDE                        |          VS CODE          |  https://code.visualstudio.com/                |
-|        Ferramenta de Design de Interface         | FIGMA (Protótipo - UX/UI) |      https://www.figma.com/                |
-|   Linguagem de programação (Backend, Frontend)   |        JAVASCRIPT         |  https://developer.mozilla.org/en-US/docs/Web/JavaScript/                |
-|        Linguagem de programação (Frontend)       |        TYPESCRIPT         |  https://www.typescriptlang.org/                |
-|           API e serviços backend (Backend)       |          NODE.JS          |        https://nodejs.org/                |
-|   Framework de aplicação web Node.js (Backend)   |        EXPRESS.JS         |        https://expressjs.com/                |
-|          Framework JavaScript (Frontend)         |          ANGULAR          |       https://angular.io/                |
-|            Framework de CSS (Frontend)           |         BOOTSTRAP         |       https://getbootstrap.com/                |
-|    Biblioteca de Componentes gráficos (UX/UI)     |        FONT AWESOME       |    https://fontawesome.com/                |
-|             Open source API (Testing)            |          POSTMAN          |      https://www.postman.com/                 |
+|                       Descrição                       |           Ferramenta           |
+| :----------------------------------------------: | :-----------------------: | 
+|                       IDE                        |          VS CODE          |
+|                       IDE                        |       Visual Studio       |
+|   Linguagem de programação (Backend, Frontend)   |        JAVASCRIPT         |
+|        Linguagem de programação (Frontend)       |        TYPESCRIPT         |
+|          Framework JavaScript (Frontend)         |          ANGULAR          | 
+|            Framework de CSS (Frontend)           |         BOOTSTRAP         | 
+|                      .NET 7.0                    |         .NET 7.0          | 
+|                 Ferramenta Swagger               |          Swagger          |
+|                 Ferramenta Firebase              |          Firebase         |
+|                        MySQL                     |          MySQL            |
+
+
 
 <div align = 'center'>
   <h3>Backend | API</h3>
-  <img height =' 100px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"/>
-  <img height =' 100px ' left=' 20px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"/>
-  <br>
-  <h3>Testing</h3>
-  <img width =' 100px ' src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" />
+  <img height =' 100px ' src="https://swagger.io/"/>
+  <img height =' 100px ' left=' 20px ' src="https://en.wikipedia.org/wiki/File:Microsoft_.NET_logo.svg"/>
   <br>
   <h3>IDE</h3>
   <img height =' 100px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" />
-  <br>
-  <h3>UX/UI</h3>
-  <img height =' 100px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" />
-  <img height =' 100px ' left='80px' src="https://i0.wp.com/blog.fontawesome.com/wp-content/uploads/2020/08/Proposed.png?resize=720%2C480&ssl=1"/>
+  <img height =' 100px ' src="https://visualstudio.microsoft.com/wp-content/uploads/2021/10/Product-Icon.svg" />
   <br>
   <h3>Frontend</h3>
   <img width =' 100px ' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" />
@@ -139,74 +138,31 @@ As seguintes tecnologias foram utilizadas para construção do projeto:<br><br>
   <li><bold>A Fazer<bold>: as tarefas que ainda serão realizadas</li>
   <li><bold>Em andamento<bold>: as tarefas que já estão sendo desenvolvidas</li>
   <li><bold>Concluído<bold>: as tarefas que foram cumpridas</li>
+  <li><bold>Testes<bold>: testes a serem feitos</li>
 </ul>
 <p>
-  <a href="https://trello.com/b/xMzUPteQ/projeto-radar" alt="Metodologia Kanban - quadro Trello"> Clique aqui para visualizar os cards.
+  <a href="https://grupo7-radar.atlassian.net/jira/software/projects/PI/boards/3 alt="Metodologia Kanban - quadro Jira"> Clique aqui para visualizar os cards.
   </a>
   <br>
-  <div align = 'center' justify-content = 'space-around' >
-    <img width="1604" alt=" Metodologia Kanban - quadro Trello" src="./frontend/src/assets/screens/ScreenTrello.png">
-  </div>
-</p>
 </div>
 
 <div id="howtouse">
 <h2>🧪 Como utilizar</h2>
   <ol &nbsp;>
+    <li &nbsp;>Abra a organização</li>
+      <li>https://github.com/Projeto-Radar-Final</li>
     <li &nbsp;>Configure a IDE - Visual Studio Code</li>
-    <li &nbsp;>Clone o repositório
+    <li &nbsp;>Clone os repositório
       <ul>
-        <li>git clone https://github.com/alexandrecpedro/radar-project.git</li>
+        <li>git clone https://github.com/Projeto-Radar-Final/Back-end-Radar</li>
+        <li>git clone https://github.com/Projeto-Radar-Final/desafio-angular-codigo-do-futuro</li>
       </ul>
     </li>
-    <li &nbsp;>Entre no diretório do projeto:
-      <ul>
-        <li>cd radar-project</li>
-      </ul>
+    <li &nbsp;>Entre no diretório dos projetos
     </li>
     <li><b>Testing</b>
-      <ul>
-        <li &nbsp;><u>Backend</u>
-          <ol>
-            <li &nbsp;>Entre no diretório backend
-              <ul>
-                <li>cd backend</li>
-              </ul>
-            </li>
-            <li &nbsp;>Instale as dependências
-              <ul>
-                <li>npm install</li>
-              </ul>
-            </li>
-            <li &nbsp;>Run
-              <ul>
-                <li>npm run dev</li>
-              </ul>
-            </li>
-          </ol>
-        </li>
-        <li &nbsp;><u>Frontend</u>
-          <ol>
-            <li &nbsp;>Entre no diretório frontend
-              <ul>
-                <li>cd frontend</li>
-              </ul>
-            </li>
-            <li &nbsp;>Instale as dependências
-              <ul>
-                <li>npm install</li>
-              </ul>
-            </li>
-            <li &nbsp;>Run
-              <ul>
-                <li>ng serve</li>
-              </ul>
-            </li>
-          </ol>
-        </li>
-      </ul>
-    </li>
-  </ol>
+      
+   
 </div>
 
 <div id="greetings">
