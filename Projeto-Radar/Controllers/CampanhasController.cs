@@ -58,6 +58,7 @@ namespace Projeto_Radar.Controllers
             {
                 return Problem("Banco de dados esta vazio");
             }
+            campanha.Data = DateOnly.FromDateTime(DateTime.Now);
             _context.Campanhas.Add(campanha);
             await _context.SaveChangesAsync();
 

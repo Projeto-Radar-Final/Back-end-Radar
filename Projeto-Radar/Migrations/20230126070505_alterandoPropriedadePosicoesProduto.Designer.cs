@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Projeto_Radar.Context;
 
@@ -10,9 +11,11 @@ using Projeto_Radar.Context;
 namespace ProjetoRadar.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    [Migration("20230126070505_alterandoPropriedadePosicoesProduto")]
+    partial class alterandoPropriedadePosicoesProduto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,10 +33,12 @@ namespace ProjetoRadar.Migrations
                         .HasColumnName("data");
 
                     b.Property<string>("Descricao")
+                        .IsRequired()
                         .HasColumnType("varchar(100)")
                         .HasColumnName("descricao");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnType("varchar(45)")
                         .HasColumnName("nome");
 

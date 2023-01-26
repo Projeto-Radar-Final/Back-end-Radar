@@ -10,10 +10,10 @@ namespace Projeto_Radar.Entitys
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Column("posicao_x", TypeName = "INT")]
-        public int PosicaoX { get; set; }
-        [Column("posicao_y", TypeName = "INT")]
-        public int PosicaoY { get; set; }
+        [Column("posicao_x", TypeName = "DOUBLE")]
+        public double PosicaoX { get; set; }
+        [Column("posicao_y", TypeName = "DOUBLE")]
+        public double PosicaoY { get; set; }
 
 
         [ForeignKey("Campanha")]
